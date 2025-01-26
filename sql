@@ -1,4 +1,4 @@
-# Loading and Unloading the data From AWS and Snowflake, Viceversa.
+-- SQL Script to Load and Unload Data from AWS to Snowflake
 
 USE ROLE accountadmin;
 
@@ -19,9 +19,6 @@ CREATE STORAGE INTEGRATION s1
     ENABLED = TRUE 
     STORAGE_ALLOWED_LOCATIONS = ('location of the file in s3 bucket')
 
-
-
-
 DESCRIBE INTEGRATION s1
 
 SHOW STORAGE INTEGRATIONS;
@@ -35,4 +32,4 @@ FILE_FORMAT = (TYPE='CSV')
 SHOW STAGES 
 
 COPY INTO table_name
-FROM @s3_table_name_notheader
+FROM @s1_table_name_notheader
